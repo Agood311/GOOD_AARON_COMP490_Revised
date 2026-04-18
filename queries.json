@@ -1,0 +1,269 @@
+{
+  "queries": [
+    {
+      "id": "q01",
+      "category": "exact_keyword",
+      "query": "janitorial services",
+      "relevant_doc_ids": [
+        "e9727ac6cc3c426d8045b7c0f2c67de0",
+        "d4cb7c0909ea44fda22a8a8adc09694f",
+        "ca9eda895c14482983db7c196ae947a0",
+        "aec14732abcc405e9b18996c7c1ed19a",
+        "a9e42b7dc9074e6ca318bbbaa647565f",
+        "6484e9284abc42e4b6ed227fed27f823",
+        "c7ac1ddc14c148efa59de1eaf06504c9",
+        "c446b09b8b0a4eb683984358f2b3145e"
+      ]
+    },
+    {
+      "id": "q02",
+      "category": "exact_keyword",
+      "query": "information technology support",
+      "relevant_doc_ids": [
+        "7d3efa81ca834574b01a6bce3a97a67d",
+        "50121cb3abc14109ba8f8274ee0aad9f",
+        "4a962a63d536421abe3570617fb3aea3",
+        "0afaa019bf8b4170a531fbfe28af8174",
+        "fd42473d26034f7b8fd76b3852356c19"
+      ]
+    },
+    {
+      "id": "q03",
+      "category": "exact_keyword",
+      "query": "construction management",
+      "relevant_doc_ids": [
+        "abc5e492f8964aa88de2590e291bbf7f",
+        "e8d76d25a826445e8d76dde2ac0bf6be",
+        "d45a93177fc64c9c94d9a7962f04e9c0",
+        "c8ebd07e1bc3471dae0f16c30a878d19",
+        "9d87c82a9ba84fc6af7ca054838e3d58",
+        "975ae541ce664b1cbcbe11e4b494c0a9",
+        "9465ac3ae38f421891533ea933762ca8",
+        "89d52a42fc8b4456b161aa170d6f3a79",
+        "798cff8f823e43d69e938697a9b9d13c",
+        "74200f569e144354b43f389e8d5b8d30",
+        "5ca34d35d4e44706bafc7f35fcd2c52b",
+        "542cdcaa1ae747e9a062e183bb5148aa",
+        "23c2038eb8fc4e179309ae396ada8975",
+        "18b7ade6ce434586a2498dc698017144",
+        "0d644f19bc7e4dc4a4ab66bd765e473e",
+        "2f654b04ed4c47c197da955970fbe39b",
+        "8d92101b6be64fc6a5adeb031e1222e5",
+        "82319b8b0ab94ba68559e40ccd186b9a",
+        "9d5182302aa5487faa36a40655723938",
+        "b190f3c683574fc0b92122df29dc9c1a"
+      ]
+    },
+    {
+      "id": "q04",
+      "category": "exact_keyword",
+      "query": "security guard services",
+      "relevant_doc_ids": []
+    },
+    {
+      "id": "q05",
+      "category": "exact_keyword",
+      "query": "software development",
+      "relevant_doc_ids": [
+        "fc61e4ef450a46cfbbc07faed27dfb29",
+        "d025f6dcb1014df6a6efe74c53fab341",
+        "7d3efa81ca834574b01a6bce3a97a67d",
+        "4a962a63d536421abe3570617fb3aea3",
+        "fd42473d26034f7b8fd76b3852356c19",
+        "cedefcbbea12429383e90a7c4ae01246",
+        "131e27f0eb4b41c4932f340c2f55cfde"
+      ]
+    },
+    {
+      "id": "q06",
+      "category": "synonym",
+      "query": "help cleaning buildings",
+      "relevant_doc_ids": [
+        "d4cb7c0909ea44fda22a8a8adc09694f",
+        "ca9eda895c14482983db7c196ae947a0",
+        "c446b09b8b0a4eb683984358f2b3145e",
+        "aec14732abcc405e9b18996c7c1ed19a",
+        "a9e42b7dc9074e6ca318bbbaa647565f",
+        "6484e9284abc42e4b6ed227fed27f823"
+      ]
+    },
+    {
+      "id": "q07",
+      "category": "synonym",
+      "query": "computer and network maintenance support",
+      "relevant_doc_ids": [
+        "0afaa019bf8b4170a531fbfe28af8174",
+        "4a962a63d536421abe3570617fb3aea3",
+        "fd42473d26034f7b8fd76b3852356c19",
+        "50121cb3abc14109ba8f8274ee0aad9f",
+        "13677eac857345a08cd3084e79b846c1",
+        "6f349ab601d04c03b026407c2989cf0e",
+        "09289a85363f4182a1d6ba88cc8a7ba2"
+      ]
+    },
+    {
+      "id": "q08",
+      "category": "synonym",
+      "query": "building renovation and repair",
+      "relevant_doc_ids": [
+        "fbab53ef9ad84d9f85dfa619c4ae4085",
+        "e8d76d25a826445e8d76dde2ac0bf6be",
+        "e3aa95dea58245558ef0506519dfe6f5",
+        "cb578bb5e3624a86bf27974a6ea487cf",
+        "caca4dcd5f2846499b47e5964b44d2aa",
+        "9d87c82a9ba84fc6af7ca054838e3d58",
+        "9465ac3ae38f421891533ea933762ca8",
+        "8c4b499a47854e2fba15322ef183a5b6",
+        "8925f772bba24172868b1798af57228b",
+        "798cff8f823e43d69e938697a9b9d13c",
+        "74200f569e144354b43f389e8d5b8d30",
+        "632e7364ccea4584a9542f82665cf2b6",
+        "5ca34d35d4e44706bafc7f35fcd2c52b",
+        "54547104cc7b4af8b346fecd2b38d929",
+        "542cdcaa1ae747e9a062e183bb5148aa",
+        "0541fdf508f140ca96f89190bdb06d98",
+        "5bb6f39bdd9746a0969c63f04032b26e",
+        "d9fc18cdf2a04571a002a79c3fe3b8e3",
+        "9d3859ec7857424e9a645c8cc8fe873f",
+        "c7269c03bda74034878ff48c3fa8dd61"
+      ]
+    },
+    {
+      "id": "q09",
+      "category": "synonym",
+      "query": "armed personnel protection",
+      "relevant_doc_ids": []
+    },
+    {
+      "id": "q10",
+      "category": "synonym",
+      "query": "application programming and coding",
+      "relevant_doc_ids": [
+        "d025f6dcb1014df6a6efe74c53fab341",
+        "4a962a63d536421abe3570617fb3aea3",
+        "fd42473d26034f7b8fd76b3852356c19",
+        "fc61e4ef450a46cfbbc07faed27dfb29",
+        "cedefcbbea12429383e90a7c4ae01246",
+        "7d3efa81ca834574b01a6bce3a97a67d"
+      ]
+    },
+    {
+      "id": "q11",
+      "category": "conceptual",
+      "query": "environmental impact assessment",
+      "relevant_doc_ids": [
+        "de739e4d05704a64be9468f847cf03f3",
+        "dc509e8bafb14b978334ed3debba6186",
+        "ca4b57b9d45e43b083c56459b52fe2e0",
+        "9e1e4d475e4c41ce9c253ba7e4b03ddb",
+        "8ee1197f57004dadb4fb2cbadafda69d",
+        "43f0353e52094765aaa4e2e85520bfd1",
+        "2a63aa6899924d6eabfddfedd6e2f4c1",
+        "3cf04966244e43e2a59b8a19955b5ee2"
+      ]
+    },
+    {
+      "id": "q12",
+      "category": "conceptual",
+      "query": "improving veteran healthcare outcomes",
+      "relevant_doc_ids": [
+        "f2e4f6c9a834446c9fdc7d7e9445bce6",
+        "eddcca197bab4b9789f4f76dc066fa5c",
+        "df62e1a155ad4ab5bfdfcd38ab2a47d4",
+        "c4e489c6363b4ab68ff6f342455e6601",
+        "8d5845b721df4a40a99c08f77665b0a7",
+        "79469b9365de487aa8a4a12011864de1",
+        "67ef48055e7349a089ab3b80e547911e",
+        "61cb969e17664f4491ff0c57d23db401",
+        "258a596070e54d9b9599de12bf758501"
+      ]
+    },
+    {
+      "id": "q13",
+      "category": "conceptual",
+      "query": "modernizing federal agency data infrastructure",
+      "relevant_doc_ids": [
+        "d025f6dcb1014df6a6efe74c53fab341",
+        "cedefcbbea12429383e90a7c4ae01246",
+        "9465ac3ae38f421891533ea933762ca8",
+        "9176ee94b56740bdb9b5a76b16762391",
+        "809a1436b5bc4f60bea3f46609ef9cf1",
+        "798cff8f823e43d69e938697a9b9d13c",
+        "6f2316503a7947209336478d22458c97",
+        "6675d6fb274346a6a950eeb1e52a4704",
+        "1e01b3125fec412b8e13df34adc4013c",
+        "fd42473d26034f7b8fd76b3852356c19",
+        "4a962a63d536421abe3570617fb3aea3"
+      ]
+    },
+    {
+      "id": "q14",
+      "category": "conceptual",
+      "query": "reducing energy consumption in government buildings",
+      "relevant_doc_ids": [
+        "b3e7cc3a449e4327af04022660c7220a",
+        "b131229a80f941b88b3d71219bd4fc7c",
+        "9995fcb7b7dc4397bcd3dda33e91c8d3",
+        "8cf8cffca1294c4fb6c14dd371d42d1e",
+        "e3aa95dea58245558ef0506519dfe6f5",
+        "54547104cc7b4af8b346fecd2b38d929",
+        "0541fdf508f140ca96f89190bdb06d98",
+        "1daa6f40a8f245c99556b72b06c5a118",
+        "ee5674ea57824ee09d1e2a495f03364c",
+        "9632a8f88a364e4ba3427dabdb7611da"
+      ]
+    },
+    {
+      "id": "q15",
+      "category": "conceptual",
+      "query": "training federal workforce on cybersecurity awareness",
+      "relevant_doc_ids": [
+        "c33050ba82cf483987e81586e0a1f74e"
+      ]
+    },
+    {
+      "id": "q16",
+      "category": "technical",
+      "query": "NAICS 541620",
+      "relevant_doc_ids": [
+        "65d000a2345b4fa98303a31ccedb3042",
+        "3cf04966244e43e2a59b8a19955b5ee2"
+      ]
+    },
+    {
+      "id": "q17",
+      "category": "technical",
+      "query": "NAICS 541512 small business set aside",
+      "relevant_doc_ids": []
+    },
+    {
+      "id": "q18",
+      "category": "technical",
+      "query": "8(a) sole source environmental consulting",
+      "relevant_doc_ids": []
+    },
+    {
+      "id": "q19",
+      "category": "technical",
+      "query": "PSC R425 professional management support services",
+      "relevant_doc_ids": [
+        "f28579f765bd418fb52a2bcc39d8e89b",
+        "8cf8cffca1294c4fb6c14dd371d42d1e",
+        "26f7a93f04e2402b804323319ad97844",
+        "1046b6dc56ce4c1798efb6a8801f9d0d"
+      ]
+    },
+    {
+      "id": "q20",
+      "category": "technical",
+      "query": "IDIQ task order cybersecurity assessment",
+      "relevant_doc_ids": [
+        "809a1436b5bc4f60bea3f46609ef9cf1",
+        "50121cb3abc14109ba8f8274ee0aad9f",
+        "1e01b3125fec412b8e13df34adc4013c",
+        "19a915c33d824af0b888f82ae0165448",
+        "0afaa019bf8b4170a531fbfe28af8174"
+      ]
+    }
+  ]
+}

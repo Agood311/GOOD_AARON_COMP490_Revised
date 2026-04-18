@@ -1,0 +1,81 @@
+config,query_id,query,category,P@10,R@10,AP,NDCG@10
+tfidf,q01,janitorial services,exact_keyword,0.3,0.375,0.4734,0.539
+tfidf,q02,information technology support,exact_keyword,0.0,0.0,0.0232,0.0
+tfidf,q03,construction management,exact_keyword,0.1,0.05,0.3093,0.2201
+tfidf,q05,software development,exact_keyword,0.4,0.5714,0.5429,0.6921
+tfidf,q06,help cleaning buildings,synonym,0.4,0.6667,0.6111,0.7526
+tfidf,q07,computer and network maintenance support,synonym,0.0,0.0,0.0143,0.0
+tfidf,q08,building renovation and repair,synonym,0.7,0.35,0.5031,0.7728
+tfidf,q10,application programming and coding,synonym,0.1,0.1667,0.0833,0.1909
+tfidf,q11,environmental impact assessment,conceptual,0.0,0.0,0.0,0.0
+tfidf,q12,improving veteran healthcare outcomes,conceptual,0.0,0.0,0.0,0.0
+tfidf,q13,modernizing federal agency data infrastructure,conceptual,0.4,0.3636,0.3693,0.4663
+tfidf,q14,reducing energy consumption in government buildings,conceptual,0.1,0.1,0.0167,0.0784
+tfidf,q15,training federal workforce on cybersecurity awareness,conceptual,0.0,0.0,0.0833,0.0
+tfidf,q16,NAICS 541620,technical,0.2,1.0,1.0,1.0
+tfidf,q19,PSC R425 professional management support services,technical,0.4,1.0,1.0,1.0
+tfidf,q20,IDIQ task order cybersecurity assessment,technical,0.2,0.4,0.18,0.3452
+sbert,q01,janitorial services,exact_keyword,0.4,0.5,0.4878,0.5654
+sbert,q02,information technology support,exact_keyword,0.5,1.0,0.81,0.9068
+sbert,q03,construction management,exact_keyword,0.7,0.35,0.6271,0.7728
+sbert,q05,software development,exact_keyword,0.4,0.5714,0.3848,0.4601
+sbert,q06,help cleaning buildings,synonym,0.4,0.6667,0.7113,0.7409
+sbert,q07,computer and network maintenance support,synonym,0.1,0.1429,0.214,0.1063
+sbert,q08,building renovation and repair,synonym,0.8,0.4,0.5586,0.6851
+sbert,q10,application programming and coding,synonym,0.4,0.6667,0.4094,0.5455
+sbert,q11,environmental impact assessment,conceptual,0.8,1.0,0.9085,0.9716
+sbert,q12,improving veteran healthcare outcomes,conceptual,0.2,0.2222,0.3526,0.2392
+sbert,q13,modernizing federal agency data infrastructure,conceptual,0.5,0.4545,0.5081,0.5669
+sbert,q14,reducing energy consumption in government buildings,conceptual,0.3,0.3,0.4107,0.3273
+sbert,q15,training federal workforce on cybersecurity awareness,conceptual,0.0,0.0,0.0222,0.0
+sbert,q16,NAICS 541620,technical,0.0,0.0,0.0033,0.0
+sbert,q19,PSC R425 professional management support services,technical,0.0,0.0,0.0362,0.0
+sbert,q20,IDIQ task order cybersecurity assessment,technical,0.4,0.8,0.5245,0.6174
+hybrid-0.3,q01,janitorial services,exact_keyword,0.4,0.5,0.5747,0.6233
+hybrid-0.3,q02,information technology support,exact_keyword,0.5,1.0,0.6862,0.7739
+hybrid-0.3,q03,construction management,exact_keyword,0.8,0.4,0.7041,0.839
+hybrid-0.3,q05,software development,exact_keyword,0.4,0.5714,0.3197,0.4898
+hybrid-0.3,q06,help cleaning buildings,synonym,0.4,0.6667,0.7863,0.7751
+hybrid-0.3,q07,computer and network maintenance support,synonym,0.1,0.1429,0.1301,0.0795
+hybrid-0.3,q08,building renovation and repair,synonym,0.7,0.35,0.6156,0.7026
+hybrid-0.3,q10,application programming and coding,synonym,0.1,0.1667,0.0952,0.1909
+hybrid-0.3,q11,environmental impact assessment,conceptual,0.6,0.75,0.7181,0.8224
+hybrid-0.3,q12,improving veteran healthcare outcomes,conceptual,0.2,0.2222,0.3267,0.2012
+hybrid-0.3,q13,modernizing federal agency data infrastructure,conceptual,0.6,0.5455,0.5922,0.5806
+hybrid-0.3,q14,reducing energy consumption in government buildings,conceptual,0.3,0.3,0.1629,0.2533
+hybrid-0.3,q15,training federal workforce on cybersecurity awareness,conceptual,0.1,1.0,0.125,0.3155
+hybrid-0.3,q16,NAICS 541620,technical,0.0,0.0,0.0036,0.0
+hybrid-0.3,q19,PSC R425 professional management support services,technical,0.3,0.75,0.6283,0.7757
+hybrid-0.3,q20,IDIQ task order cybersecurity assessment,technical,0.4,0.8,0.5914,0.7234
+hybrid-0.5,q01,janitorial services,exact_keyword,0.4,0.5,0.5914,0.6291
+hybrid-0.5,q02,information technology support,exact_keyword,0.5,1.0,0.5629,0.6807
+hybrid-0.5,q03,construction management,exact_keyword,0.8,0.4,0.6904,0.8237
+hybrid-0.5,q05,software development,exact_keyword,0.4,0.5714,0.3435,0.5088
+hybrid-0.5,q06,help cleaning buildings,synonym,0.4,0.6667,0.7611,0.7751
+hybrid-0.5,q07,computer and network maintenance support,synonym,0.0,0.0,0.0848,0.0
+hybrid-0.5,q08,building renovation and repair,synonym,0.7,0.35,0.599,0.7026
+hybrid-0.5,q10,application programming and coding,synonym,0.1,0.1667,0.0952,0.1909
+hybrid-0.5,q11,environmental impact assessment,conceptual,0.6,0.75,0.7181,0.8224
+hybrid-0.5,q12,improving veteran healthcare outcomes,conceptual,0.2,0.2222,0.3267,0.2012
+hybrid-0.5,q13,modernizing federal agency data infrastructure,conceptual,0.6,0.5455,0.5238,0.543
+hybrid-0.5,q14,reducing energy consumption in government buildings,conceptual,0.3,0.3,0.1629,0.2533
+hybrid-0.5,q15,training federal workforce on cybersecurity awareness,conceptual,0.1,1.0,0.125,0.3155
+hybrid-0.5,q16,NAICS 541620,technical,0.1,0.5,0.2526,0.3869
+hybrid-0.5,q19,PSC R425 professional management support services,technical,0.3,0.75,0.7538,0.8319
+hybrid-0.5,q20,IDIQ task order cybersecurity assessment,technical,0.4,0.8,0.4603,0.583
+hybrid-0.7,q01,janitorial services,exact_keyword,0.5,0.625,0.5839,0.6995
+hybrid-0.7,q02,information technology support,exact_keyword,0.4,0.8,0.4376,0.5286
+hybrid-0.7,q03,construction management,exact_keyword,0.8,0.4,0.6219,0.7917
+hybrid-0.7,q05,software development,exact_keyword,0.4,0.5714,0.4976,0.6646
+hybrid-0.7,q06,help cleaning buildings,synonym,0.4,0.6667,0.7564,0.7751
+hybrid-0.7,q07,computer and network maintenance support,synonym,0.0,0.0,0.0738,0.0
+hybrid-0.7,q08,building renovation and repair,synonym,0.7,0.35,0.6272,0.7026
+hybrid-0.7,q10,application programming and coding,synonym,0.1,0.1667,0.0952,0.1909
+hybrid-0.7,q11,environmental impact assessment,conceptual,0.6,0.75,0.7181,0.8224
+hybrid-0.7,q12,improving veteran healthcare outcomes,conceptual,0.2,0.2222,0.3267,0.2012
+hybrid-0.7,q13,modernizing federal agency data infrastructure,conceptual,0.5,0.4545,0.4759,0.4736
+hybrid-0.7,q14,reducing energy consumption in government buildings,conceptual,0.1,0.1,0.0993,0.0734
+hybrid-0.7,q15,training federal workforce on cybersecurity awareness,conceptual,0.0,0.0,0.0909,0.0
+hybrid-0.7,q16,NAICS 541620,technical,0.1,0.5,0.503,0.6131
+hybrid-0.7,q19,PSC R425 professional management support services,technical,0.4,1.0,0.875,0.955
+hybrid-0.7,q20,IDIQ task order cybersecurity assessment,technical,0.3,0.6,0.4102,0.467

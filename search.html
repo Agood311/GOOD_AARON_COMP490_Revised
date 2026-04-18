@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RFP Search Engine</title>
+  <style>
+    :root {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-tertiary: #21262d;
+      --border-color: #30363d;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --text-muted: #6e7681;
+      --accent: #58a6ff;
+      --accent-hover: #79b8ff;
+      --success: #3fb950;
+      --warning: #d29922;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    header { margin-bottom: 2rem; }
+
+    h1 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* Search Form */
+    .search-form {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 0.625rem 0.875rem;
+      font-size: 1rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus { border-color: var(--accent); }
+    .search-input::placeholder { color: var(--text-muted); }
+
+    .btn {
+      padding: 0.625rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+    .btn-secondary:hover {
+      background: var(--border-color);
+      color: var(--text-primary);
+    }
+
+    /* Controls Row */
+    .controls-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .control-group label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    select, .date-input {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    select:focus, .date-input:focus { border-color: var(--accent); }
+
+    /* Mode Buttons */
+    .mode-buttons {
+      display: flex;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .mode-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-right: 1px solid var(--border-color);
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .mode-btn:last-child { border-right: none; }
+    .mode-btn.active { background: var(--accent); color: #fff; }
+    .mode-btn input { display: none; }
+
+    /* Results */
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .results-count {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .results-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .result-item {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 0.75rem;
+      transition: border-color 0.2s;
+    }
+
+    .result-item:hover { border-color: var(--accent); }
+
+    .result-title {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .result-title a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .result-title a:hover { text-decoration: underline; }
+
+    .result-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .meta-item { color: var(--text-secondary); }
+
+    .meta-item.deadline { color: var(--warning); }
+
+    .meta-item.state {
+      background: var(--bg-tertiary);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .meta-item.naics {
+      background: var(--bg-tertiary);
+      color: var(--text-muted);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-family: monospace;
+    }
+
+    .meta-item.set-aside {
+      background: #1a2d1a;
+      color: var(--success);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid #2a4a2a;
+    }
+
+    /* NAICS filter row */
+    .naics-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: stretch;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .naics-row select,
+    .naics-row input {
+      flex: 1;
+    }
+
+    .naics-custom {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-primary);
+      outline: none;
+      min-width: 0;
+    }
+
+    .naics-custom:focus { border-color: var(--accent); }
+    .naics-custom::placeholder { color: var(--text-muted); }
+
+    .filter-row-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    .active-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .filter-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .filter-tag a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9em;
+      line-height: 1;
+    }
+
+    .filter-tag a:hover { color: var(--text-primary); }
+
+    .score-badge { color: var(--success); font-weight: 500; }
+
+    .score-breakdown {
+      color: var(--text-muted);
+      font-weight: 400;
+      font-size: 0.8rem;
+    }
+
+    .result-snippet {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Empty / No Results */
+    .no-results {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-secondary);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 4rem 1rem;
+      color: var(--text-muted);
+    }
+
+    .empty-state p { margin: 0.5rem 0; }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .pagination a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .pagination a:hover {
+      background: var(--bg-secondary);
+      text-decoration: none;
+    }
+
+    .page-info {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Refresh */
+    .refresh-form {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .refresh-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .search-row { flex-direction: column; }
+      .controls-row { flex-direction: column; align-items: stretch; }
+      .naics-row { flex-direction: column; }
+      .control-group { width: 100%; }
+      .mode-buttons { width: 100%; }
+      .mode-btn { flex: 1; text-align: center; }
+      select, .date-input, .naics-custom { width: 100%; }
+      .result-meta { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>RFP Search Engine</h1>
+      <p class="subtitle">Hybrid semantic + keyword search for government contracting opportunities</p>
+    </header>
+
+    <form class="search-form" method="get" action="/">
+      <div class="search-row">
+        <input
+          class="search-input"
+          type="text"
+          name="q"
+          value="{{ query | e }}"
+          placeholder="Search RFPs (e.g., environmental consulting, IT modernization, construction services...)"
+          autofocus
+        />
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+
+      <div class="controls-row">
+        <div class="control-group">
+          <label>Search Mode</label>
+          <div class="mode-buttons">
+            <label class="mode-btn {% if mode == 'hybrid' %}active{% endif %}">
+              <input type="radio" name="mode" value="hybrid" {% if mode == 'hybrid' %}checked{% endif %}>
+              Hybrid
+            </label>
+            <label class="mode-btn {% if mode == 'semantic' %}active{% endif %}">
+              <input type="radio" name="mode" value="semantic" {% if mode == 'semantic' %}checked{% endif %}>
+              Semantic
+            </label>
+            <label class="mode-btn {% if mode == 'tfidf' %}active{% endif %}">
+              <input type="radio" name="mode" value="tfidf" {% if mode == 'tfidf' %}checked{% endif %}>
+              Keyword
+            </label>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>State</label>
+          <select name="state">
+            <option value="">All States</option>
+            {% for s in available_states %}
+              <option value="{{ s | e }}" {% if state == s %}selected{% endif %}>{{ s | e }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        {% if set_aside_options %}
+        <div class="control-group">
+          <label>Set-Aside</label>
+          <select name="set_aside">
+            <option value="">All Set-Asides</option>
+            {% for opt in set_aside_options %}
+              <option value="{{ opt.code | e }}" {% if set_aside == opt.code %}selected{% endif %}>{{ opt.label | e }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        {% else %}
+        <input type="hidden" name="set_aside" value="">
+        {% endif %}
+
+        <div class="control-group">
+          <label>Due Date From</label>
+          <input class="date-input" type="date" name="date_from" value="{{ date_from | e }}">
+        </div>
+
+        <div class="control-group">
+          <label>Due Date To</label>
+          <input class="date-input" type="date" name="date_to" value="{{ date_to | e }}">
+        </div>
+      </div>
+
+      <!-- NAICS filter row -->
+      <div class="naics-row">
+        <div style="flex:1; min-width:0;">
+          <div class="filter-row-label">NAICS — common codes</div>
+          <select name="naics" id="naics-select" onchange="syncNaicsInput(this.value)">
+            <option value="">All NAICS</option>
+            {% for opt in naics_options %}
+              <option value="{{ opt.code | e }}"
+                {% if naics == opt.code %}selected{% endif %}>
+                {{ opt.label | e }} ({{ opt.count }})
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div style="display:flex;align-items:flex-end;justify-content:center;width:3rem;flex-shrink:0;margin-left:3rem;">
+          <span style="color:var(--text-muted);padding-bottom:0.55rem;font-size:0.85rem;">or</span>
+        </div>
+        <div style="flex:1; min-width:0;">
+          <div class="filter-row-label">Type a NAICS code</div>
+          <input
+            class="naics-custom"
+            type="text"
+            id="naics-custom"
+            placeholder="e.g. 5416 or 541620"
+            value="{% if naics and naics not in naics_options|map(attribute='code')|list %}{{ naics | e }}{% endif %}"
+            oninput="syncNaicsSelect(this.value)"
+            maxlength="6"
+          />
+        </div>
+      </div>
+    </form>
+
+    <!-- Active filter tags -->
+    {% if naics or set_aside or state or date_from or date_to %}
+      <div class="active-filters">
+        {% if naics %}
+          <span class="filter-tag">
+            NAICS: {{ naics | e }}
+            <a href="/?q={{ query | urlencode }}&mode={{ mode }}&state={{ state | urlencode }}&date_from={{ date_from }}&date_to={{ date_to }}&set_aside={{ set_aside | urlencode }}&naics=&page=1&per_page={{ per_page }}" title="Remove">✕</a>
+          </span>
+        {% endif %}
+        {% if set_aside %}
+          <span class="filter-tag">
+            Set-Aside: {{ set_aside | e }}
+            <a href="/?q={{ query | urlencode }}&mode={{ mode }}&state={{ state | urlencode }}&date_from={{ date_from }}&date_to={{ date_to }}&naics={{ naics | urlencode }}&set_aside=&page=1&per_page={{ per_page }}" title="Remove">✕</a>
+          </span>
+        {% endif %}
+        {% if state %}
+          <span class="filter-tag">
+            State: {{ state | e }}
+            <a href="/?q={{ query | urlencode }}&mode={{ mode }}&date_from={{ date_from }}&date_to={{ date_to }}&naics={{ naics | urlencode }}&set_aside={{ set_aside | urlencode }}&state=&page=1&per_page={{ per_page }}" title="Remove">✕</a>
+          </span>
+        {% endif %}
+        {% if date_from %}
+          <span class="filter-tag">
+            From: {{ date_from | e }}
+            <a href="/?q={{ query | urlencode }}&mode={{ mode }}&state={{ state | urlencode }}&date_to={{ date_to }}&naics={{ naics | urlencode }}&set_aside={{ set_aside | urlencode }}&date_from=&page=1&per_page={{ per_page }}" title="Remove">✕</a>
+          </span>
+        {% endif %}
+        {% if date_to %}
+          <span class="filter-tag">
+            To: {{ date_to | e }}
+            <a href="/?q={{ query | urlencode }}&mode={{ mode }}&state={{ state | urlencode }}&date_from={{ date_from }}&naics={{ naics | urlencode }}&set_aside={{ set_aside | urlencode }}&date_to=&page=1&per_page={{ per_page }}" title="Remove">✕</a>
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if not query %}
+      <div class="empty-state">
+        <p>Enter a search term above to find government RFPs.</p>
+        <p>{{ "Try: \"cybersecurity\", \"construction\", \"IT services\"" }}</p>
+      </div>
+
+    {% elif not results %}
+      <div class="no-results">
+        <p>No results found for <strong>{{ query | e }}</strong></p>
+        <p style="font-size: 0.9rem;">Try different keywords or adjust your filters.</p>
+      </div>
+
+    {% else %}
+      <div class="results-header">
+        <span class="results-count">Showing {{ results | length }} of {{ total }} results</span>
+        <span class="results-count">Page {{ page }} of {{ total_pages }}</span>
+      </div>
+
+      <ul class="results-list">
+        {% for r in results %}
+          <li class="result-item">
+            <h3 class="result-title">
+              {% if r.url %}
+                <a href="{{ r.url | e }}" target="_blank" rel="noopener noreferrer">{{ r.title | e }}</a>
+              {% else %}
+                {{ r.title | e }}
+              {% endif %}
+            </h3>
+
+            <div class="result-meta">
+              {% if r.agency %}
+                <span class="meta-item agency">{{ r.agency | e }}</span>
+              {% endif %}
+              {% if r.deadline %}
+                <span class="meta-item deadline">Due: {{ r.deadline | e }}</span>
+              {% endif %}
+              {% if r.state %}
+                <span class="meta-item state">{{ r.state | e }}</span>
+              {% endif %}
+              {% if r.naics %}
+                <span class="meta-item naics">NAICS {{ r.naics | e }}</span>
+              {% endif %}
+              {% if r.set_aside %}
+                <span class="meta-item set-aside">{{ r.set_aside | e }}</span>
+              {% endif %}
+              <span class="score-badge">
+                Score: {{ r.score }}
+                {% if r.tfidf_score is defined and r.semantic_score is defined %}
+                  <span class="score-breakdown">(TF-IDF: {{ r.tfidf_score }} | Semantic: {{ r.semantic_score }})</span>
+                {% endif %}
+              </span>
+            </div>
+
+            {% if r.snippet %}
+              <p class="result-snippet">{{ r.snippet | e }}…</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+
+      {% if total_pages > 1 %}
+        <div class="pagination">
+          {% set base_url = "/?q=" ~ (query | urlencode) ~ "&mode=" ~ mode ~ "&state=" ~ (state | urlencode) ~ "&date_from=" ~ date_from ~ "&date_to=" ~ date_to ~ "&naics=" ~ (naics | urlencode) ~ "&set_aside=" ~ (set_aside | urlencode) ~ "&per_page=" ~ per_page %}
+          {% if page > 1 %}
+            <a href="{{ base_url }}&page={{ page - 1 }}">← Previous</a>
+          {% endif %}
+          <span class="page-info">{{ page }} / {{ total_pages }}</span>
+          {% if page < total_pages %}
+            <a href="{{ base_url }}&page={{ page + 1 }}">Next →</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endif %}
+
+    <form class="refresh-form" method="post" action="/refresh-local">
+      <button class="btn btn-secondary" type="submit">Refresh Index from rfp.csv</button>
+      <p class="refresh-hint">Run <code>ingest_sam.py</code> first to pull fresh data, then click this to reload.</p>
+    </form>
+  </div>
+
+  <script>
+    // Mode button toggle
+    document.querySelectorAll('.mode-btn input').forEach(input => {
+      input.addEventListener('change', () => {
+        document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+        input.parentElement.classList.add('active');
+      });
+    });
+
+    // NAICS dropdown ↔ text input sync.
+    // Only one of the two submits a value; the hidden field carries whichever is active.
+    const naicsSelect = document.getElementById('naics-select');
+    const naicsCustom = document.getElementById('naics-custom');
+
+    function syncNaicsInput(val) {
+      // Dropdown changed → clear custom input, drive form via select
+      if (val) {
+        naicsCustom.value = '';
+        naicsCustom.name = '';
+        naicsSelect.name = 'naics';
+      } else {
+        naicsCustom.name = 'naics';
+        naicsSelect.name = '';
+      }
+    }
+
+    function syncNaicsSelect(val) {
+      // Custom input typed → deselect dropdown, drive form via input
+      naicsSelect.value = '';
+      if (val) {
+        naicsSelect.name = '';
+        naicsCustom.name = 'naics';
+      } else {
+        naicsSelect.name = 'naics';
+        naicsCustom.name = '';
+      }
+    }
+
+    // On page load: decide which control owns the name="naics"
+    (function initNaics() {
+      const customVal = naicsCustom.value.trim();
+      const selectVal = naicsSelect.value;
+      if (customVal) {
+        naicsSelect.name = '';
+        naicsCustom.name = 'naics';
+      } else {
+        naicsSelect.name = 'naics';
+        naicsCustom.name = '';
+      }
+    })();
+  </script>
+</body>
+</html>
